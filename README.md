@@ -1,0 +1,2 @@
+# Real-Time-Traffic-Prediction-and-Optimization-System-RTPOPS-
+Developed a Real-Time Traffic Prediction and Optimization System using Python, Django, and Machine Learning. The system analyzes traffic, GPS, and weather data to predict congestion and suggest optimized routes. It features real-time monitoring, data visualization, and scalable cloud-ready architecture for smarter urban traffic management.
