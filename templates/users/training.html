@@ -1,0 +1,75 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Model Training Results</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .card {
+            margin-top: 50px;
+        }
+        .plot-img {
+            max-width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 5px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="card shadow p-4">
+        <h2 class="text-center text-primary mb-4">Model Training Results</h2>
+
+        {% if error %}
+            <div class="alert alert-danger text-center" role="alert">
+                {{ error }}
+            </div>
+        {% else %}
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <strong>Root Mean Squared Error (RMSE):</strong> {{ rmse }}
+                        </li>
+                        <li class="list-group-item">
+                            <strong>R² Score:</strong> {{ r2 }}
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Model Saved At:</strong>
+                            <br><code>{{ model_path }}</code>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-6 text-center">
+                    <h5 class="mb-3">Prediction vs Actual Plot</h5>
+                    <img src="{{ plot_url }}" alt="Prediction vs Actual" class="plot-img">
+                </div>
+            </div>
+        {% endif %}
+
+        <div class="text-center mt-4">
+            <a href="{% url 'index' %}" class="btn btn-secondary">Back to Home</a>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS (optional, for responsiveness) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+

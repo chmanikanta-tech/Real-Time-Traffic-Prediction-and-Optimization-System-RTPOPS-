@@ -1,0 +1,210 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real-Time Traffic Prediction And Optimization using Machine Learning</title>
+
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Orbitron:wght@600&family=Roboto+Slab:wght@700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Internal CSS -->
+    <style>
+        :root {
+            --primary-color: #1e40af;
+            --secondary-color: #60a5fa;
+            --accent-color: #dc2626;
+            --text-dark: #0f172a;
+            --text-light: #f8fafc;
+            --shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+            --spacing-unit: 8px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+            scroll-behavior: smooth;
+        }
+
+        .container-main {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 calc(var(--spacing-unit) * 2);
+        }
+
+        header.navbar {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            padding: calc(var(--spacing-unit) * 2) 0;
+            box-shadow: var(--shadow);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.3rem;
+            color: var(--text-light) !important;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--text-light) !important;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        .hero-section {
+            min-height: 90vh;
+            display: grid;
+            place-items: center;
+            text-align: center;
+            color: var(--text-light);
+            padding-top: 140px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .hero-content h1 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 4.5rem;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: white;
+        }
+
+        .hero-content .btn {
+            font-size: 1.3rem;
+            padding: 12px 36px;
+            background: var(--accent-color);
+            color: var(--text-light);
+            border: none;
+            border-radius: 30px;
+        }
+
+        .section-card {
+            background: white;
+            padding: 40px;
+            margin: 40px auto;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            max-width: 1200px;
+        }
+
+        .section-card h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .section-card p, .section-card ul li {
+            font-size: 1.2rem;
+            line-height: 1.7;
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        #datetime {
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar navbar-expand-lg">
+        <div class="container-main">
+            <a class="navbar-brand" href="#">Real-Time Traffic Prediction</a>
+            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon text-dark"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="ms-auto d-flex gap-3">
+                    <a class="nav-link" href="{% url 'base' %}">Home</a>
+                    <a class="nav-link" href="{% url 'UserLoginCheck' %}">User</a>
+                    <a class="nav-link" href="{% url 'AdminLoginCheck' %}">Admin</a>
+                    <a class="nav-link" href="{% url 'UserRegisterForm' %}">Register</a>
+                    <a class="nav-link" href="#about">About Us</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Real-Time Traffic Prediction</h1>
+                <p>Predicting and optimizing traffic flow using machine learning and real-time data analytics for smarter cities.</p>
+                <a href="{% url 'UserLoginCheck' %}" class="btn">Start Prediction</a>
+            </div>
+        </section>
+
+        {% block content %}{% endblock %}
+
+        <div class="container-main">
+            <div class="section-card" id="about">
+                <h2>About Traffic</h2>
+                <p>Traffic prediction involves forecasting future traffic conditions using historical data and machine learning techniques to improve transportation planning and real-time route optimization in urban areas.</p>
+            </div>
+
+            <div class="section-card">
+                <h2>How It Works</h2>
+                <ul>
+                    <li><strong>Data Collection:</strong> Gather real-time and historical traffic data.</li>
+                    <li><strong>Feature Selection:</strong> Identify key patterns affecting congestion.</li>
+                    <li><strong>Model Training:</strong> Use machine learning models for prediction.</li>
+                    <li><strong>Optimization:</strong> Suggest best routes and signal timing for smooth flow.</li>
+                </ul>
+            </div>
+
+            <div class="section-card">
+                <h2>Features</h2>
+                <ul>
+                    <li>Real-Time Forecasting with high accuracy</li>
+                    <li>Integrates GPS, sensors, and traffic feeds</li>
+                    <li>Scalable and cloud-deployable</li>
+                    <li>User-friendly visual interface for monitoring and control</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container-main">
+            <p>© 2025 Real-Time Traffic System. All rights reserved.</p>
+            <p id="datetime"></p>
+        </div>
+    </footer>
+
+    <script>
+        function updateDateTime() {
+            const datetimeElement = document.getElementById('datetime');
+            if (datetimeElement) {
+                const now = new Date();
+                datetimeElement.textContent = now.toLocaleString('en-US', { dateStyle: 'full', timeStyle: 'short' });
+            }
+        }
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
